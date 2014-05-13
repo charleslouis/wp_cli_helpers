@@ -2,3 +2,8 @@
 ##########################################
 # WP CORE
 ##########################################
+
+# CORE
+alias wpcdl=wp_core_download
+alias wpcc=wp_core_config
+alias wpci=wp_core_install

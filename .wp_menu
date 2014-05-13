@@ -1,0 +1,9 @@
+#!/bin/bash
+##########################################
+# MENU
+##########################################
+alias wpmc="wp menu create $1"
+alias wpmls="wp menu list $1"
+alias wpmll="wp menu location list $1" # --format=(fac.)
+alias wpmlr="wp menu location remove $1"
+alias wpmla="wp menu location assign $1"

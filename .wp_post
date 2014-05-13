@@ -1,0 +1,49 @@
+#!/bin/bash
+##########################################
+# WP POST
+##########################################
+
+# POST
+alias wppg="wp post generate --count="
+
+wp_post_generate(){
+	wp_post_generate="wp post generate"
+	read -p "Number of post to generate ? "
+	if [[ $REPLY =~ ^[0-9]$ ]]
+	then
+		wp_post_generate=$wp_post_generate" --count="$REPLY
+	fi
+
+	read -p "post_type ? "
+	if [[ $REPLY ]]
+	then
+		wp_post_generate=$wp_post_generate" --post_type="$REPLY
+	fi
+	wppg=$wp_post_generate
+	eval $wppg
+}
+
+wp_post_delete(){
+	wp_post_delete="wp post delete "
+	read -p "Please provide comma separated post ids OR type [batch] : "
+	if [[ $REPLY =~ "batch" ]]
+	then
+		read -p "--post_type="
+		post_type=$REPLY
+		read -p "--format="
+		format=$REPLY
+		wppdl=$wp_post_delete$(wp post list --post_type='$post_type' --format=$format)
+	else
+		wppdl=$wp_post_delete$REPLY
+	fi
+	read -p "force ?? [yes] "
+	if [[ $REPLY =~ "yes" ]]
+	then	
+		wppdl=$wppdl" --force "
+	fi
+
+	eval $wppdl
+}
+
+alias wppg=wp_post_generate
+alias wppdl=wp_post_delete
