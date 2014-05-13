@@ -1,0 +1,14 @@
+#!/bin/bash
+##########################################
+# WP CORE DOWNLOAD
+##########################################
+wp_core_download() {
+	download="wp core download "
+	read -p "Which locale (language) do you need ? (fr=fr_FR / en=en_EN) | default=en_EN : " -n 2 -r
+	echo    # (optional) move to a new line
+	if [[ $REPLY = "fr" || "FR" ]]
+	then
+	    download=$download' --locale=fr_FR'
+	fi
+	eval $download;
+}

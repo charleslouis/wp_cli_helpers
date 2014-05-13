@@ -1,0 +1,69 @@
+#!/bin/bash
+##########################################
+# WP CORE INSTALL
+##########################################
+
+wp_core_install() {
+	# store base commands of wp in wp core install
+
+	install="wp core install "
+	current_dir="${PWD##*/}"
+
+	wpci_url(){
+		default_url="http://localhost/"$current_dir
+		read -p "Provide a url ( Default url = "$default_url" ) : "
+		echo    # (optional) move to a new line
+		
+		install=$install' --url='
+
+		if [[ $REPLY ]]
+		then
+			if [[ $REPLY =~ $regex_url ]]
+			then
+			    install=$install$REPLY
+			else
+					echo 'Please provide a valid url.'
+					read -p " Try again ?  [y/n] " -n 1 -r
+					echo    # (optional) move to a new line
+					if [[ $REPLY =~ ^[Yy]$ ]]				
+					then
+						wpci_url
+					fi
+			fi
+		else
+			install=$install$default_url
+		fi
+	}
+
+	wpci_name(){			
+		read -p "Provide a title ( Default title = "$current_dir" ) : "
+		echo    # (optional) move to a new line
+		
+		install=$install' --title='
+
+		if [[ $REPLY ]]
+		then
+			if [[ $REPLY =~ $regex_wp_site_title ]]
+			then
+					REPLY=$(printf %q "$REPLY")
+			    install=$install$REPLY
+			else
+				echo 'Please provide a valid url.'
+				read -p " Try again ? [y/n] " -n 1 -r
+				echo    # (optional) move to a new line
+				if [[ $REPLY =~ ^[Yy]$ ]]				
+				then
+					wpci_name
+				fi
+			fi
+		else
+			install=$install$current_dir
+		fi
+	}
+	wpci_url
+	wpci_name
+	install=$install' --admin_user=charles-louis --admin_password=wam --admin_email=charleslouis@lasourisetlepiano.com'
+
+	# run wp core install
+	eval $install
+}

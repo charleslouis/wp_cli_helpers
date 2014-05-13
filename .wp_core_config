@@ -1,0 +1,67 @@
+#!/bin/bash
+##########################################
+# WP CORE CONFIG
+##########################################
+wp_core_config() {
+	config="wp core config "
+	
+	# --dbname=
+	current_dir="${PWD##*/}"
+	dbname=$current_dir"_wp"
+	read -p "db name (default = $dbname) : "
+	if [[ $REPLY ]] 
+	then
+		dbname=$REPLY 	
+	fi
+	config=$config" --dbname="$dbname
+
+	# --dbuser=
+	read -p "User (default = root) : "
+	user="root"
+	if [[ $REPLY ]] 
+	then
+		user=$REPLY
+		config=$config" --dbuser="$user
+	else
+		config=$config" --dbuser=root"
+	fi
+
+	# --dbpass=
+	read -p "pass (default = "") : "
+	if [[ $REPLY ]] 
+	then
+		pass=$REPLY
+		config=$config" --dbpass="$pass
+	fi
+
+	# --dbhost=
+	read -p "Host (default = localhost) : "
+	host="localhost"
+	if [[ $REPLY ]] 
+	then
+		host=$REPLY 
+		config=$config" --dbhost="$host
+	else
+		config=$config" --dbhost=localhost"
+	fi
+
+	# validation
+	validate_wp_conf(){
+		echo "You're about to setup your worpress site with the following configuration: "
+		echo $config
+		read -p" continue ? [y/n] " -n 1 -r
+		if [[ $REPLY =~ ^[Yy]$ ]] 
+		then
+			eval $config
+		else
+			read -p "You're about to abort configuration. Are you sure ? [y/n] " -n 1 -r
+			if [[ $REPLY =~ ^[Yy]$ ]] 
+			then
+				echo
+			else
+				validate_wp_conf
+			fi
+		fi
+	}
+	validate_wp_conf
+}

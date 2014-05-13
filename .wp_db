@@ -1,0 +1,31 @@
+#!/bin/bash
+##########################################
+# WP DB
+##########################################
+wp_db_drop() {
+	echo "You're about the current WordPress database"
+	echo
+	read -p" continue ? [yes] " -n 3 -r
+	echo
+	if [[ $REPLY =~ "yes" ]]
+	then
+		echo
+		drop="wp db drop "
+		eval $drop
+		echo
+	fi
+}
+
+wp_db_create() {
+	echo "You're about the current WordPress database"
+	echo
+	read -p" continue ? [yes] " -n 3 -r
+	echo
+	if [[ $REPLY =~ "yes" ]]
+	then
+		echo
+		create="wp db create "
+		eval $create
+		echo
+	fi
+}

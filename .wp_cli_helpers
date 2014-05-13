@@ -1,0 +1,32 @@
+#!/bin/bash
+##########################################
+# WP-cli
+##########################################
+
+if [ -f "${HOME}/wp_cli_helpers/.wp_core_download" ] ; then
+  source "${HOME}/wp_cli_helpers/.wp_core_download"
+fi
+
+if [ -f "${HOME}/wp_cli_helpers/.wp_core_config" ] ; then
+  source "${HOME}/wp_cli_helpers/.wp_core_config"
+fi
+
+if [ -f "${HOME}/wp_cli_helpers/.wp_core_install" ] ; then
+  source "${HOME}/wp_cli_helpers/.wp_core_install"
+fi
+
+if [ -f "${HOME}/wp_cli_helpers/.wp_db" ] ; then
+  source "${HOME}/wp_cli_helpers/.wp_db"
+fi
+
+if [ -f "${HOME}/wp_cli_helpers/.wp_theme" ] ; then
+  source "${HOME}/wp_cli_helpers/.wp_theme"
+fi
+
+if [ -f "${HOME}/wp_cli_helpers/.wp_plugin" ] ; then
+  source "${HOME}/wp_cli_helpers/.wp_plugin"
+fi
+
+# if [ -f "${HOME}/wp_cli_helpers/.wp_" ] ; then
+#   source "${HOME}/wp_cli_helpers/.wp_"
+# fi

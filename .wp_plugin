@@ -1,0 +1,23 @@
+#!/bin/bash
+##########################################
+# WP PLUGIN
+##########################################
+alias wppl="wp plugin $1"
+alias wpplg="wp plugin get $1"
+alias wppla="wp plugin activate $1"
+alias wpple="wp plugin enable $1"
+alias wppld="wp plugin disable $1"
+alias wppldel="wp plugin delete $1"
+alias wppll="wp plugin list"
+alias wpplup="wp plugin update $1"
+alias wppls="wp plugin status $1"
+alias wpplpath="wp plugin path $1"
+alias wpplsearch="wp plugin search $1"
+
+alias wpplgacf="wpplg  'Advanced Custom Fields'; wpplg advanced-custom-field-repeater-collapser"
+
+go_to_plugin(){
+	plugin_path=$(wp plugin path)
+	cd $plugin_path
+}
+alias cdwppl=go_to_plugin

@@ -1,0 +1,22 @@
+#!/bin/bash
+##########################################
+# WP THEME
+##########################################
+alias wpt="wp theme $1"
+alias wpta="wp theme activate $1"
+alias wpte="wp theme enable $1"
+alias wptd="wp theme disable $1"
+alias wptdel="wp theme delete $1"
+alias wptl="wp theme list"
+alias wptup="wp theme update $1"
+alias wpts="wp theme status $1"
+alias wptpath="wp theme path $1"
+alias wptsearch="wp theme search $1"
+
+alias wpreverie="cdwpt; git clone https://github.com/milohuang/reverie.git;"
+
+go_to_theme(){
+	theme_path=$(wp theme path)
+	cd $theme_path
+}
+alias cdwpt=go_to_theme
