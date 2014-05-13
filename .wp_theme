@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-# WP THEME
+# WP THEME HELPERS
 ##########################################
 alias wpt="wp theme $1"
 alias wpta="wp theme activate $1"
