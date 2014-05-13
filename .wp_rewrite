@@ -1,0 +1,86 @@
+#!/bin/bash
+##########################################
+# WP REWRITE
+##########################################
+
+# alias wprwpost="wp rewrite structure %postname% --hard"
+
+rewrite_rules(){
+	permastructs=("%postname%" "%post_id%" "%year%/%monthnum%/%postname%")
+	# permastructs[0]="%postname%"
+	# permastructs[1]="%post_id%"
+	# permastructs[2]="%year%/%monthnum%/%postname%"
+	echo
+	echo "What permalink structure do you want ?"
+	echo "--------------------------------------"
+	echo
+
+	choose_permastructure
+	choose_permastructure(){
+		array_size=0
+		for permastruct in "${permastructs[@]}"; do
+			element='[ '$array_size' ] '"${permastruct}"
+	    printf "%-8s\n" "$element"
+	    array_size=$(expr $array_size + 1)
+		done | column
+		echo
+		read -p ""
+
+		if [[ $REPLY =~ ^[0-9]*$ ]]
+		permastructs_index=$REPLY
+		then
+			echo
+			echo "You're about to set permastruct to  ${permastructs[$permastructs_index]}"
+			read -p "Proceed [y] ? Resume [n] ? "
+			if [[ $REPLY =~ ^[yY]$ ]]
+			then
+				new_permastruct=${permastructs[$permastructs_index]}
+			else
+				eval choose_permastructure
+		  fi
+		  echo
+		  echo 'new_permastruct = '$new_permastruct
+		  echo
+	 	fi
+	}
+
+	echo
+	read -p "Category base ? "
+	if [[ $REPLY ]]
+	then
+		category_base="--category-base="
+		category_base=$category_base$REPLY' '
+		echo $category_base
+  fi
+
+  echo
+	read -p "Tag base ? "
+	if [[ $REPLY ]]
+	then
+		tag_base="--tag-base="
+		tag_base=$tag_base$REPLY' '
+		echo $tag_base
+  fi
+
+
+	echo
+	read -p "Hard flush ? [y] "
+	if [[ $REPLY =~ ^[0-9]*$ ]]
+	then
+		flush="--hard"
+  fi
+	echo
+	
+	new_rewrite="wp rewrite structure "$new_permastruct" "$category_base$tag_base$flush
+	
+	echo "You're about to set rewrte rules to"
+	echo $new_rewrite
+	read -p "Proceed [y] ? Resume [n] ? "
+	if [[ $REPLY =~ ^[yY]$ ]]
+	then
+			eval $new_rewrite
+	else
+			eval rewrite_rules
+	fi
+}
+alias wprwr=$rewrite_rules
