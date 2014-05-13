@@ -4,6 +4,14 @@ WP CLI HELPERS
 ### Description
 WP-CLI Helpers is a bundle of time saver aliases and function for wp-cli (http://wp-cli.org/).
 
+### Examples
+
+- run ````cdwpt```` to switch to theme directory
+- run ````cdwpp```` to switch to plugin directory
+- run ````wpcdl```` to download wp and choose your locale (language)
+- run ````wpci```` to quickly install WP with default options
+- run ````wph```` followed by any argument(s) to run ````wp $myarg(s) --help````
+ 
 ### Installation
 Plug all the scripts in a folder such as "wp_cli_helpers" and source the main file from your bash_profile like so :
 
