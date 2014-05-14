@@ -13,6 +13,13 @@ WP-CLI Helpers is a bundle of time saver aliases and function for wp-cli (http:/
 - run ````wph```` followed by any argument(s) to run ````wp $myarg(s) --help````
 - run ````wppli $plugin_slug```` to quickly install a plugin $plugin
  
+See it in action :
+- [Install wordpress in less than one minute with wp-cli ](https://www.youtube.com/watch?v=UH7gPxQm_1s&index=3&list=PLNKPjf-nKdiaon_IV3r6EI71IdcQ8_nZC
+)
+- [wp rewrite rule in 30 seconds with wp-cli ](http://www.youtube.com/watch?v=XhbRkyMww5U&feature=share&list=PLNKPjf-nKdiaon_IV3r6EI71IdcQ8_nZC&index=2)
+
+
+
 ### Installation
 Plug all the scripts in a folder such as "wp_cli_helpers" and source the main file from your bash_profile like so :
 
