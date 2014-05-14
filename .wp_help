@@ -2,6 +2,7 @@
 ##########################################
 # HELP
 ##########################################
+alias wphh="wp help"
 alias wph="wp $1 --help"
 alias wphc="wp core $1 --help"
 alias wphr="wp rewrite $1 --help"
