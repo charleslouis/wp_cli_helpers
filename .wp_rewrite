@@ -78,9 +78,10 @@ rewrite_rules(){
 	read -p "Proceed [y] ? Resume [n] ? "
 	if [[ $REPLY =~ ^[yY]$ ]]
 	then
-			eval $new_rewrite
+		eval $new_rewrite
 	else
-			eval rewrite_rules
+		eval rewrite_rules
 	fi
 }
-alias wprwr=$rewrite_rules
+
+alias wprwr=rewrite_rules
