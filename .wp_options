@@ -1,0 +1,73 @@
+#!/bin/bash
+##########################################
+# WP OPTIONS
+##########################################
+alias wpog="wp option get $1"
+alias wpou="wp option update $1 $2"
+alias wpod="wp option delete $1"
+alias wpoa=wp_option_add
+
+regex='^[a-zA-Z0-9_ ]*$'
+
+wp_option_add(){
+	echo "You're about to add an option to your WordPress install. "
+	echo
+	read -p"Continue ? [yes] "
+	echo	
+	if [[ $REPLY =~ "yes" ]]
+	then
+		read -p "Please provide a key (the name of the option to add) : "
+		echo
+		if [[ $REPLY =~ $regex ]]
+		then
+			key=$REPLY
+			echo "key= "$key
+			echo
+			read -p "Please provide a value (The value of the option to add. If ommited, the value is read from STDIN). : "
+			echo
+			if [[ $REPLY =~ $regex ]]
+			then
+				value=$REPLY
+			fi
+		fi
+		
+		read -p "Please provide a format - default if ommitted (The serialization format for the value. Default is plaintext.) : "
+    if [[ $REPLY =~ '' ]]
+		then
+			format=" --format=plaintext"
+		else
+			format=" --format=$REPLY"
+	  fi
+			echo
+			echo $format
+			echo
+		
+		read -p "Should this option be automatically loaded ? [ yes / no ] - Default: [ yes ] "
+    if [[ $REPLY =~ 'no' ]]
+    then
+    	autoload='no'
+			echo
+		else
+    	autoload='yes'
+		fi
+			echo
+			autoload=" --autoload=$autoload"
+			echo $autoload
+			echo
+
+		addoption="wp option add "$key" "$value$format$autoload
+		echo
+		echo "------------------------------------------------------------------------"
+		echo "You're about to run the following => "$addoption
+		echo "------------------------------------------------------------------------"
+		echo
+		read -p "Proceed [yes] ? "
+		if [[ $REPLY =~ 'yes' ]]
+    then
+			eval $addoption
+		fi
+
+	else
+		echo "Aborted"
+	fi
+}

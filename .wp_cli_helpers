@@ -43,6 +43,10 @@ if [ -f "${HOME}/wp_cli_helpers/.wp_rewrite" ] ; then
   source "${HOME}/wp_cli_helpers/.wp_rewrite"
 fi
 
+if [ -f "${HOME}/wp_cli_helpers/.wp_options" ] ; then
+  source "${HOME}/wp_cli_helpers/.wp_options"
+fi
+
 # if [ -f "${HOME}/wp_cli_helpers/.wp_" ] ; then
 #   source "${HOME}/wp_cli_helpers/.wp_"
 # fi
