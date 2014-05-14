@@ -6,6 +6,9 @@ alias wpog="wp option get $1"
 alias wpou="wp option update $1 $2"
 alias wpod="wp option delete $1"
 alias wpoa=wp_option_add
+alias wpfront="wp option update page_on_front $1"
+alias wpfrontpage="wp option update show_on_front page"
+alias wpfrontpost="wp option update show_on_front post"
 
 regex='^[a-zA-Z0-9_ ]*$'
 
