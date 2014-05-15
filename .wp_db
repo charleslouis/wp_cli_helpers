@@ -5,7 +5,7 @@
 
 # DB
 alias wpdbd=wp_db_drop
-alias wpdcr=wp_db_create
+alias wpdbc=wp_db_create
 
 wp_db_drop() {
 	echo "You're about the current WordPress database"
