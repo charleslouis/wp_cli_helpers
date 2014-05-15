@@ -3,6 +3,10 @@
 # WP-cli
 ##########################################
 
+if [ -f "${HOME}/wp_cli_helpers/.wp_core" ] ; then
+  source "${HOME}/wp_cli_helpers/.wp_core"
+fi
+
 if [ -f "${HOME}/wp_cli_helpers/.wp_core_download" ] ; then
   source "${HOME}/wp_cli_helpers/.wp_core_download"
 fi
