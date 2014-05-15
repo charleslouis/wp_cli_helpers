@@ -19,3 +19,6 @@ go_to_plugin(){
 	cd $plugin_path
 }
 alias cdwpp=go_to_plugin
+
+alias wp_acf="wppli advanced-custom-fields; wppla advanced-custom-fields"
+alias wp_seo="wppli advanced-custom-fields, wppla advanced-custom-fields"
