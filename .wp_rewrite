@@ -15,10 +15,10 @@ rewrite_rules(){
 	echo "--------------------------------------"
 	echo
 
-	choose_permastructure
 	choose_permastructure(){
 		array_size=0
-		for permastruct in "${permastructs[@]}"; do
+		for permastruct in "${permastructs[@]}"
+		do
 			element='[ '$array_size' ] '"${permastruct}"
 	    printf "%-8s\n" "$element"
 	    array_size=$(expr $array_size + 1)
@@ -43,6 +43,8 @@ rewrite_rules(){
 		  echo
 	 	fi
 	}
+	
+	choose_permastructure
 
 	echo
 	read -p "Category base ? "
@@ -65,9 +67,9 @@ rewrite_rules(){
 
 	echo
 	read -p "Hard flush ? [y] "
-	if [[ $REPLY =~ ^[0-9]*$ ]]
+	if [[ $REPLY =~ ^[yY]$ ]]
 	then
-		flush="--hard"
+		flush=" --hard"
   fi
 	echo
 	
