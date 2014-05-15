@@ -18,4 +18,4 @@ go_to_plugin(){
 	plugin_path=$(wp plugin path)
 	cd $plugin_path
 }
-alias cdwppl=go_to_plugin
+alias cdwpp=go_to_plugin
