@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ##########################################
 # WP THEME HELPERS
 ##########################################
@@ -15,8 +16,17 @@ alias wptsearch="wp theme search $1"
 
 alias wpreverie="cdwpt; git clone https://github.com/milohuang/reverie.git;"
 
-go_to_theme(){
+alias wpctd=go_to_theme_dir
+
+alias wptd=go_to_active_theme_dir
+
+go_to_theme_dir(){
 	theme_path=$(wp theme path)
+	echo 'cool'
 	cd $theme_path
 }
-alias cdwpt=go_to_theme
+
+go_to_active_theme_dir(){
+	go_to_theme_dir
+	cd $(wp theme list --status=active --field=name)
+}

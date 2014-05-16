@@ -1,0 +1,56 @@
+#!/bin/bash
+##########################################
+# WP-cli
+##########################################
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_core" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_core"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_core_download" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_core_download"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_core_config" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_core_config"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_core_install" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_core_install"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_db" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_db"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_plugin" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_plugin"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_menu" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_menu"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_post" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_post"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_help" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_help"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_rewrite" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_rewrite"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_options" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_options"
+fi
+
+if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_theme" ] ; then
+  source "${HOME}/profile_scripts/wp_cli_helpers/wp_theme"
+fi
+
+# if [ -f "${HOME}/profile_scripts/wp_cli_helpers/wp_" ] ; then
+#   source "${HOME}/profile_scripts/wp_cli_helpers/wp_"
+# fi
