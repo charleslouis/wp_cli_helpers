@@ -14,19 +14,30 @@ alias wpts="wp theme status $1"
 alias wptpath="wp theme path $1"
 alias wptsearch="wp theme search $1"
 
-alias wpreverie="cdwpt; git clone https://github.com/milohuang/reverie.git;"
+alias wpreverie="git clone https://github.com/milohuang/reverie.git;"
+alias wpfoundationpress="git clone https://github.com/olefredrik/FoundationPress.git;"
 
-alias wpctd=go_to_theme_dir
+alias wptd=go_to_theme_dir
 
-alias wptd=go_to_active_theme_dir
+alias wpatd=go_to_active_theme_dir
 
 go_to_theme_dir(){
 	theme_path=$(wp theme path)
-	echo 'cool'
 	cd $theme_path
 }
 
 go_to_active_theme_dir(){
+	active_theme=$(wp theme list --status=active --field=name)
 	go_to_theme_dir
-	cd $(wp theme list --status=active --field=name)
+	cd $active_theme
+	echo
+	echo "----------------------------------------------------"
+	echo "Active theme directory : " $active_theme
+	echo "----------------------------------------------------"
+	echo
+	ls
+	echo
+	echo "----------------------------------------------------"
+	echo "----------------------------------------------------"
+	echo
 }
