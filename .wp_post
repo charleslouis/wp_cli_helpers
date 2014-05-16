@@ -4,7 +4,13 @@
 ##########################################
 
 # POST
+alias wppol="wp post list --post_type=post,wppolpage $1"
+alias wppal="wp post list --post_type=page $1"
 alias wppg="wp post generate --count="
+alias wppg=wp_post_generate
+alias wppdl=wp_post_delete
+alias wppcff=wp_post_create_from_files
+alias wppfc=wp_post_file_create
 
 wp_post_generate(){
 	wp_post_generate="wp post generate"
@@ -32,7 +38,7 @@ wp_post_delete(){
 		post_type=$REPLY
 		read -p "--format="
 		format=$REPLY
-		wppdl=$wp_post_delete$(wp post list --post_type='$post_type' --format=$format)
+		wppdl=$wp_post_delete$(wp post list --post_type="$post_type" --format=$format)
 	else
 		wppdl=$wp_post_delete$REPLY
 	fi
@@ -45,5 +51,102 @@ wp_post_delete(){
 	eval $wppdl
 }
 
-alias wppg=wp_post_generate
-alias wppdl=wp_post_delete
+wp_post_create_from_files(){
+	home=$(wp option get home)
+	home_dir=$(basename $home)
+	wp_posts_to_create=$home_dir"/wp_posts_to_create"
+	
+	# cd to wamp/www
+	cdwamp
+	
+	# cd to wp_install/wp_posts_to_create
+	cd $wp_posts_to_create
+
+	# POST_FILES from which we want to create posts are definde by "*.post_type.txt"
+	POST_FILES="*.txt"
+	
+	# lets first display all the files
+	for file in $POST_FILES
+	do
+		printf "%-8s\n" $file
+	done | column
+
+
+	for file in $POST_FILES
+	do
+
+		# Post title derives from file title
+		####################################
+		filename=$(basename "$file")
+		extension="${filename##*.}"
+
+		# remove ".txt"
+		title="${filename%.*}"
+		
+		post_type="${title##*.}"
+
+		# remove ".post_type" to get only file name and use it as a title
+		title_="${title%.*}"
+		title=${title_//_/ }
+		title='"'$title'"'
+
+		# Post content derives from file content
+		########################################
+		read -p "Publish "$title_" ? [y/n] " -n 1 -r
+		if [[ $REPLY =~ ^[yY]$ ]]
+		then
+			publish=' --post_status=publish'
+		fi
+		post_create="wp post create "$filename" --post_title="$title" --post_type="$post_type$publish
+		echo
+		echo "--------------------------------------------------------------------------------"		
+		echo $post_create
+		eval $post_create
+		echo "--------------------------------------------------------------------------------"
+	done
+}
+
+
+wp_post_file_create(){
+
+	home=$(wp option get home)
+	home_dir=$(basename $home)
+	wp_posts_to_create=$home_dir"/wp_posts_to_create"
+	
+	# cd to wamp/www
+	cdwamp
+	
+	# cd to wp_install/wp_posts_to_create
+	cd $wp_posts_to_create
+
+	read -p "File name (corespond to post title) : "
+	filename=$REPLY
+
+	echo "Post type (default to post) : "
+	read -p "[0] post  [1] page  [2] other : " -n 1 -r
+
+	if [[ $REPLY =~ ^[1-9]$ ]]; then
+		if [[ $REPLY = '1' ]]; then
+			extension='.page.txt'
+		else
+			read -p "Please provide a post type : "
+			extension=$REPLY'.txt'
+		fi
+	else
+			extension='.post.txt'
+	fi
+	echo
+	echo "----------------------------------------"
+
+	filename=$filename$extension
+	filename=${filename// /_}
+
+	touch $filename
+
+	echo $filename' created'
+
+	cygstart $filename
+
+	echo "----------------------------------------"
+	echo
+}
