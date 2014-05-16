@@ -7,3 +7,20 @@
 alias wpcdl=wp_core_download
 alias wpcc=wp_core_config
 alias wpci=wp_core_install
+
+alias cdwp=go_to_wp_home_dir
+alias wpd=open_wp_home_page_in_browser
+
+go_to_wp_home_dir(){
+	home=$(wp option get home)
+	home_dir=$(basename $home)	
+	# cd to wamp/www
+	cdwamp
+	# cd to wp_install/wp_posts_to_create
+	cd $home_dir
+}
+
+open_wp_home_page_in_browser(){
+	home=$(wp option get home)
+	cygstart $home
+}
