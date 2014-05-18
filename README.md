@@ -1,10 +1,10 @@
 WP CLI HELPERS
 ==============
 
-### Description
+## Description
 WP-CLI Helpers is a bundle of time saver aliases and function for wp-cli (http://wp-cli.org/).
 
-### Examples
+## Examples
 
 - run `cdwpt` to switch to theme directory
 - run `cdwpp` to switch to plugin directory
@@ -22,8 +22,9 @@ See it in action with these short videos :
 
 
 
-### Installation
-Plug all the scripts in a folder such as "wp_cli_helpers" and source the main file from your bash_profile like so :
+## Installation
+Run `wpget https://github.com/kartonnade/wp_cli_helpers/archive/master.zip` or `curl https://github.com/kartonnade/wp_cli_helpers/archive/master.zip` or [download wp_cli_helpers as a zip file](https://github.com/kartonnade/wp_cli_helpers/archive/master.zip).
+Plug all the scripts in a folder such as "wp_cli_helpers" in your $HOME directory and source the main file from your .bash_profile like so :
 
 ````
 if [ -f "${HOME}/wp_cli_helpers/.wp_cli_helpers" ] ; then
@@ -33,7 +34,7 @@ fi
 
 # Details
 
-## WP THEME HELPERS
+#### WP THEME HELPERS
 ````
 alias wpt="wp theme $1"
 alias wpta="wp theme activate $1"
@@ -55,7 +56,7 @@ go_to_theme(){
 alias cdwpt=go_to_theme
 ````
 
-## WP PLUGIN
+#### WP PLUGIN
 
 ````
 alias wppl="wp plugin $1"
@@ -79,7 +80,7 @@ go_to_plugin(){
 alias cdwppl=go_to_plugin
 ````
 
-## WP CORE DOWNLOAD
+#### WP CORE DOWNLOAD
 
 ````
 wp_core_download() {
