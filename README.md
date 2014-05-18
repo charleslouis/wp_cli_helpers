@@ -4,6 +4,13 @@ WP CLI HELPERS
 ## Description
 WP-CLI Helpers is a bundle of shell time saver aliases and function for wp-cli (http://wp-cli.org/).
 
+## Video demos :
+See it in action with these short videos :
+- [Install wordpress in less than one minute with wp-cli ](https://www.youtube.com/watch?v=UH7gPxQm_1s&index=3&list=PLNKPjf-nKdiaon_IV3r6EI71IdcQ8_nZC
+)
+- [wp rewrite rule in 30 seconds with wp-cli ](http://www.youtube.com/watch?v=XhbRkyMww5U&feature=share&list=PLNKPjf-nKdiaon_IV3r6EI71IdcQ8_nZC&index=2)
+- [Manage wordpress options in an eye blink](http://youtu.be/dECMEPvTT-c)
+
 ## Examples
 
 - run `cdwpt` to switch to theme directory
@@ -14,12 +21,6 @@ WP-CLI Helpers is a bundle of shell time saver aliases and function for wp-cli (
 - run `wppli $plugin_slug` to quickly install a plugin $plugin
 - run `wpoa` to add an option with a prompter
  
-### Video demos :
-See it in action with these short videos :
-- [Install wordpress in less than one minute with wp-cli ](https://www.youtube.com/watch?v=UH7gPxQm_1s&index=3&list=PLNKPjf-nKdiaon_IV3r6EI71IdcQ8_nZC
-)
-- [wp rewrite rule in 30 seconds with wp-cli ](http://www.youtube.com/watch?v=XhbRkyMww5U&feature=share&list=PLNKPjf-nKdiaon_IV3r6EI71IdcQ8_nZC&index=2)
-- [Manage wordpress options in an eye blink](http://youtu.be/dECMEPvTT-c)
 
 
 
@@ -72,7 +73,7 @@ alias cdwp=go_to_wp_home_dir
 alias wpd=open_wp_home_page_in_browser
 ````
 
-#### WP CORE  DOWNLOAD[see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core_download)
+#### WP CORE  DOWNLOAD [see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core_download)
 
 ````
 wp_core_download() {
