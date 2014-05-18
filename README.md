@@ -10,6 +10,7 @@ See it in action with these short videos :
 )
 - [wp rewrite rule in 30 seconds with wp-cli ](http://www.youtube.com/watch?v=XhbRkyMww5U&feature=share&list=PLNKPjf-nKdiaon_IV3r6EI71IdcQ8_nZC&index=2)
 - [Manage wordpress options in an eye blink](http://youtu.be/dECMEPvTT-c)
+- [Update your wordpress plugins in less than 30 seconds with wp-cli](http://youtu.be/zRlrPsdn2vY)
 
 ## Examples
 
