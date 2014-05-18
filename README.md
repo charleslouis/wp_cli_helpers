@@ -2,7 +2,7 @@ WP CLI HELPERS
 ==============
 
 ## Description
-WP-CLI Helpers is a bundle of time saver aliases and function for wp-cli (http://wp-cli.org/).
+WP-CLI Helpers is a bundle of shell time saver aliases and function for wp-cli (http://wp-cli.org/).
 
 ## Examples
 
@@ -179,8 +179,74 @@ alias wphmloc="wp menu location $1"
 alias wphmls="wp menu list $1"
 ````
 
-
+## ALL ALIASES
 ````
+alias wp_acf='wppli advanced-custom-fields; wppla advanced-custom-fields'
+alias wp_seo='wppli advanced-custom-fields, wppla advanced-custom-fields'
+alias wpatd='go_to_active_theme_dir'
+alias wpcc='wp_core_config'
+alias wpcdl='wp_core_download'
+alias wpci='wp_core_install'
+alias wpd='open_wp_home_page_in_browser'
+alias wpdbc='wp_db_create'
+alias wpdbd='wp_db_drop'
+alias wpfoundationpress='git clone https://github.com/olefredrik/FoundationPress.git;'
+alias wpfront='wp option update page_on_front '
+alias wpfrontpage='wp option update show_on_front page'
+alias wpfrontpost='wp option update show_on_front post'
+alias wph='wp  --help'
+alias wphc='wp core  --help'
+alias wphcc='wp cache  --help'
+alias wphdb='wp db  --help'
+alias wphm='wp menu  --help'
+alias wphmloc='wp menu location '
+alias wphmls='wp menu list '
+alias wpho='wp option  --help'
+alias wphp='wp post  --help'
+alias wphpl='wp plugin  --help'
+alias wphr='wp rewrite  --help'
+alias wphsr='wp search-replace  --help'
+alias wpht='wp theme  --help'
+alias wphu='wp user  --help'
+alias wpmc='wp menu create '
+alias wpmla='wp menu location assign '
+alias wpmll='wp menu location list '
+alias wpmlr='wp menu location remove '
+alias wpmls='wp menu list '
+alias wpoa='wp_option_add'
+alias wpod='wp option delete '
+alias wpog='wp option get '
+alias wpou='wp option update  '
+alias wppal='wp post list --post_type=page '
+alias wppcff='wp_post_create_from_files'
+alias wppdl='wp_post_delete'
+alias wppfc='wp_post_file_create'
+alias wppg='wp_post_generate'
+alias wppl='wp plugin '
+alias wppla='wp plugin activate '
+alias wpplda='wp plugin deactivate '
+alias wpplg='wp plugin get '
+alias wppli='wp plugin install '
+alias wppll='wp plugin list'
+alias wpplpath='wp plugin path '
+alias wppls='wp plugin status '
+alias wpplsearch='wp plugin search '
+alias wpplun='wp plugin uninstall '
+alias wpplup='wp plugin update '
+alias wppol='wp post list --post_type=post,wppolpage '
+alias wpreverie='git clone wpgit@github.com:kartonnade/reverie.git'
+alias wprwr='rewrite_rules'
+alias wpt='wp theme '
+alias wpta='wp theme activate '
+alias wptd='go_to_theme_dir; wpts'
+alias wptdel='wp theme delete '
+alias wpte='wp theme enable '
+alias wptl='wp theme list'
+alias wptpath='wp theme path '
+alias wpts='wp theme status '
+alias wptsearch='wp theme search '
+alias wptup='wp theme update '
+
 ````
 ````
 ````
