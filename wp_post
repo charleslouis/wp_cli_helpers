@@ -4,6 +4,7 @@
 ##########################################
 
 # POST
+alias wppo="wp post $1"
 alias wppol="wp post list --post_type=post,wppolpage $1"
 alias wppal="wp post list --post_type=page $1"
 alias wppg="wp post generate --count="
