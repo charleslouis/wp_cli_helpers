@@ -14,6 +14,7 @@ WP-CLI Helpers is a bundle of time saver aliases and function for wp-cli (http:/
 - run `wppli $plugin_slug` to quickly install a plugin $plugin
 - run `wpoa` to add an option with a prompter
  
+### Video demos :
 See it in action with these short videos :
 - [Install wordpress in less than one minute with wp-cli ](https://www.youtube.com/watch?v=UH7gPxQm_1s&index=3&list=PLNKPjf-nKdiaon_IV3r6EI71IdcQ8_nZC
 )
@@ -80,6 +81,24 @@ go_to_plugin(){
 alias cdwppl=go_to_plugin
 ````
 
+#### WP DB
+
+````
+alias wpdbd=wp_db_drop
+alias wpdbc=wp_db_create
+````
+
+
+#### WP CORE
+````
+alias wpcdl=wp_core_download
+alias wpcc=wp_core_config
+alias wpci=wp_core_install
+
+alias cdwp=go_to_wp_home_dir
+alias wpd=open_wp_home_page_in_browser
+````
+
 #### WP CORE DOWNLOAD
 
 ````
@@ -94,8 +113,39 @@ wp_core_download() {
 	eval $download;
 }
 ````
+
+#### WP THEME
+
 ````
+alias wpt="wp theme $1"
+alias wpta="wp theme activate $1"
+alias wpte="wp theme enable $1"
+alias wptd="wp theme disable $1"
+alias wptdel="wp theme delete $1"
+alias wptl="wp theme list"
+alias wptup="wp theme update $1"
+alias wpts="wp theme status $1"
+alias wptpath="wp theme path $1"
+alias wptsearch="wp theme search $1"
+
+alias wpreverie="cdwpt; git clone https://github.com/milohuang/reverie.git;"
+
+alias wptd=go_to_theme_dir
+
+alias wpatd=go_to_active_theme_dir
+
+go_to_theme_dir(){
+	theme_path=$(wp theme path)
+	cd $theme_path
+}
+
+go_to_active_theme_dir(){
+	go_to_theme_dir
+	cd $(wp theme list --status=active --field=name)
+}
 ````
+
+#### WP CORE CONFIG
 ````
 ````
 ````
