@@ -88,6 +88,21 @@ alias wpdbd=wp_db_drop
 alias wpdbc=wp_db_create
 ````
 
+#### WP REWRITE
+Manage rewrite rules by simply running `wprwr`
+
+
+#### WP OPTIONS
+````
+alias wpog="wp option get $1"
+alias wpou="wp option update $1 $2"
+alias wpod="wp option delete $1"
+alias wpoa=wp_option_add
+alias wpfront="wp option update page_on_front $1"
+alias wpfrontpage="wp option update show_on_front page"
+alias wpfrontpost="wp option update show_on_front post"
+````
+
 
 #### WP CORE
 ````
@@ -145,9 +160,26 @@ go_to_active_theme_dir(){
 }
 ````
 
-#### WP CORE CONFIG
+#### WP HELP
+
 ````
+alias wph="wp $1 --help"
+alias wphc="wp core $1 --help"
+alias wphr="wp rewrite $1 --help"
+alias wphsr="wp search-replace $1 --help"
+alias wphcc="wp cache $1 --help"
+alias wphdb="wp db $1 --help"
+alias wphm="wp menu $1 --help"
+alias wpho="wp option $1 --help"
+alias wphpl="wp plugin $1 --help"
+alias wpht="wp theme $1 --help"
+alias wphu="wp user $1 --help"
+alias wphp="wp post $1 --help"
+alias wphmloc="wp menu location $1"
+alias wphmls="wp menu list $1"
 ````
+
+
 ````
 ````
 ````
