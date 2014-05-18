@@ -4,7 +4,102 @@
 ##########################################
 alias wpm="wp menu $1"
 alias wpmc="wp menu create $1"
+alias wpms="wpmll; wpml"
+
+# Menus 
 alias wpml="wp menu list $1"
+alias wpmc="wp menu create $1"
+alias wpmd="wp menu delete $1"
+
+# Menu items
+alias wpmi="wp menu item $1"
+alias wpmil="wp menu item list $1"
+alias wpmia=add_item_to_menu
+alias wpmid=remove_item_from_menu
+
+# Menu location
 alias wpmll="wp menu location list $1" # --format=(fac.)
 alias wpmlr="wp menu location remove $1"
 alias wpmla="wp menu location assign $1"
+
+add_item_to_menu(){
+	echo
+	echo "------------------------------------------------"
+	echo "Your menus"
+	echo "=========="
+	wpml
+	echo
+	echo "Which menu do you want to add item(s) to ? "
+	read -p '[menu id] : '
+	menu=$REPLY
+	echo
+	echo "============================"
+	echo "You've selected menu $menu |"
+	echo "============================"
+	echo
+	echo "Pages list"	
+	echo "=========================="
+	wppal # list pages
+	echo "Which item/page do you want to add to $menu ? "
+	echo "You can add several items using comma separated values (ids)."
+	read -p "ids : "
+	pages=$REPLY
+	pages_list=(${pages//,/ })
+	echo "------------------------------------------------"
+	echo "You're up to add these items to menu $menu :"
+	echo "------------------------------------------------"
+	for page in "${pages_list[@]}"; do
+		echo $page
+	done | column
+	echo "------------------------------------------------"
+	echo
+	read -p "Continue ? [yes] " -n 3 -r
+	if [[ $REPLY=~'yes' ]]; then
+		echo
+		for page in "${pages_list[@]}"; do
+			wp menu item add-post $menu $page
+		done
+		echo
+	fi
+}
+
+remove_item_from_menu(){
+	echo
+	echo "------------------------------------------------"
+	echo "Your menus"
+	echo "=========="
+	wpml
+	echo
+	echo "Which menu do you want to add item(s) to ? "
+	read -p '[menu id] : '
+	menu=$REPLY
+	echo
+	echo "============================"
+	echo "You've selected menu $menu |"
+	echo "============================"
+	echo
+	echo "List menu $menu items"
+	echo "=========================="
+	wpmil $menu
+	echo "Which item/page do you want to remove from $menu ? "
+	echo "You can remove several items using comma separated values (ids)."
+	read -p "ids : "
+	menu_items=$REPLY
+	menu_items_list=(${menu_items//,/ })
+	echo "--------------------------------------------------------------------------"
+	echo "You're up to remove these menu-items from menu $menu :"
+	echo "--------------------------------------------------------------------------"
+	for menu_item in "${menu_items_list[@]}"; do
+		echo $menu_item
+	done | column
+	echo "------------------------------------------------"
+	echo
+	read -p "Continue ? [yes] " -n 3 -r
+	if [[ $REPLY=~'yes' ]]; then
+		echo
+		for menu_item in "${menu_items_list[@]}"; do
+			wp menu item delete $menu_item
+		done
+		echo
+	fi
+}
