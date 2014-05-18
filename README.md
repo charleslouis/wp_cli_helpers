@@ -35,18 +35,18 @@ fi
 
 # Details
 
-#### [WP DB](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
+#### [WP DB -> see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
 
 ````
 alias wpdbd=wp_db_drop
 alias wpdbc=wp_db_create
 ````
 
-#### [WP REWRITE](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
+#### [WP REWRITE -> see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
 Manage rewrite rules by simply running `wprwr`
 
 
-#### [WP OPTIONS](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
+#### [WP OPTIONS -> see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
 ````
 alias wpog="wp option get $1"
 alias wpou="wp option update $1 $2"
@@ -58,7 +58,7 @@ alias wpfrontpost="wp option update show_on_front post"
 ````
 
 
-#### [WP CORE](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
+#### [WP CORE -> see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
 ````
 alias wpcdl=wp_core_download
 alias wpcc=wp_core_config
@@ -68,7 +68,7 @@ alias cdwp=go_to_wp_home_dir
 alias wpd=open_wp_home_page_in_browser
 ````
 
-#### [WP CORE DOWNLOAD](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
+#### [WP CORE DOWNLOAD -> see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
 
 ````
 wp_core_download() {
@@ -83,7 +83,7 @@ wp_core_download() {
 }
 ````
 
-#### [WP HELP](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
+#### [WP HELP -> see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
 
 ````
 alias wph="wp $1 --help"
@@ -101,7 +101,7 @@ alias wphp="wp post $1 --help"
 alias wphmloc="wp menu location $1"
 alias wphmls="wp menu list $1"
 ````
-#### [WP THEME](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
+#### [WP THEME -> see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
 
 ````
 alias wpt="wp theme $1"
@@ -118,7 +118,7 @@ alias wptd=go_to_theme_dir
 alias wpatd=go_to_active_theme_dir
 ````
 
-#### [WP PLUGIN](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
+#### [WP PLUGIN -> see the file](https://github.com/kartonnade/wp_cli_helpers/blob/master/wp_core)
 
 ````
 alias wppl="wp plugin $1"
